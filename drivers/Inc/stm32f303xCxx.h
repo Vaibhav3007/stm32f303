@@ -38,7 +38,7 @@
  */
 #define NVIC_IPR_BASEADDR			((__vo uint32_t*)0xE000E400)
 
-#define NO_PR_BITS_IMPLEMENTED		4 //$-bit interrupt priority defined by ST
+#define NO_PR_BITS_IMPLEMENTED		4 //4-bit interrupt priority defined by ST
 
 /*
  * Base addresses of memories

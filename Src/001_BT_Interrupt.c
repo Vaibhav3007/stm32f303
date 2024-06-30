@@ -27,23 +27,23 @@ int main(void)
 	GPIO_PClkCtrl(GPIOE, ENABLE);
 	GPIO_Init(&GpioLed);
 	//Configure Button Pin
-	UsrBtn.pGPIOx = GPIOC;
-	UsrBtn.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_2;
+	UsrBtn.pGPIOx = GPIOA;
+	UsrBtn.GPIO_PinConfig.GPIO_PinNumber = GPIO_PIN_NO_0;
 	UsrBtn.GPIO_PinConfig.GPIO_PinMode = GPIO_MODE_INTRUPT_FALL;
 	UsrBtn.GPIO_PinConfig.GPIO_PinPuPd = GPIO_NO_PUPD;
 	//Enable Button Pin
-	GPIO_PClkCtrl(GPIOC, ENABLE);
+	GPIO_PClkCtrl(GPIOA, ENABLE);
 	GPIO_Init(&UsrBtn);
 	//Interrupt handling
-	GPIO_IRQPriorityConfig(IRQ_NO_EXTI2, 1);
-	GPIO_IRQConfig(IRQ_NO_EXTI2, ENABLE);
+	GPIO_IRQPriorityConfig(IRQ_NO_EXTI0, 1);
+	GPIO_IRQConfig(IRQ_NO_EXTI0, ENABLE);
     /* Loop forever */
 	while(1);
 }
 
-void EXTI2_TSC_IRQHandler(void)
+void EXTI0_IRQHandler(void)
 {
-	delay();
-	GPIO_IRQHandling(GPIO_PIN_NO_2);
+//	delay();
+	GPIO_IRQHandling(GPIO_PIN_NO_0);
 	GPIO_ToggleOpPin(GPIOE, GPIO_PIN_NO_14);
 }
