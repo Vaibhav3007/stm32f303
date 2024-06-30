@@ -242,6 +242,26 @@ typedef struct{
 #define IRQ_NO_EXTI15_10	40
 
 /*
+ * Interrupt programmable priority level
+ */
+#define PRI_0			0
+#define PRI_1			1
+#define PRI_2			2
+#define PRI_3			3
+#define PRI_4			4
+#define PRI_5			5
+#define PRI_6			6
+#define PRI_7			7
+#define PRI_8			8
+#define PRI_9			9
+#define PRI_10			10
+#define PRI_11			11
+#define PRI_12			12
+#define PRI_13			13
+#define PRI_14			14
+#define PRI_15			15
+
+/*
  * I2Cx Bit position definitions
  */
 

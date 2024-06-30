@@ -354,11 +354,11 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x103 ./drivers/Src/stm32f303xCxx_i2c_driver.o
  .debug_macro   0x0000000000000000       0x6a ./drivers/Src/stm32f303xCxx_i2c_driver.o
  .debug_macro   0x0000000000000000      0x1df ./drivers/Src/stm32f303xCxx_i2c_driver.o
- .debug_macro   0x0000000000000000      0x24b ./drivers/Src/stm32f303xCxx_i2c_driver.o
+ .debug_macro   0x0000000000000000      0x2bb ./drivers/Src/stm32f303xCxx_i2c_driver.o
  .debug_macro   0x0000000000000000       0xbe ./drivers/Src/stm32f303xCxx_i2c_driver.o
  .debug_macro   0x0000000000000000       0x28 ./drivers/Src/stm32f303xCxx_i2c_driver.o
  .debug_line    0x0000000000000000      0x530 ./drivers/Src/stm32f303xCxx_i2c_driver.o
- .debug_str     0x0000000000000000     0x4fef ./drivers/Src/stm32f303xCxx_i2c_driver.o
+ .debug_str     0x0000000000000000     0x507b ./drivers/Src/stm32f303xCxx_i2c_driver.o
  .comment       0x0000000000000000       0x44 ./drivers/Src/stm32f303xCxx_i2c_driver.o
  .debug_frame   0x0000000000000000       0x88 ./drivers/Src/stm32f303xCxx_i2c_driver.o
  .ARM.attributes
@@ -744,9 +744,9 @@ LOAD C:/ST/STM32CubeIDE_1.8.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.exte
  .text.GPIO_Init
                 0x0000000008000430      0x2fc ./drivers/Src/stm32f303xCxx_gpio_driver.o
                 0x0000000008000430                GPIO_Init
- .text.GPIO_ToggleOpPort
+ .text.GPIO_ToggleOpPin
                 0x000000000800072c       0x28 ./drivers/Src/stm32f303xCxx_gpio_driver.o
-                0x000000000800072c                GPIO_ToggleOpPort
+                0x000000000800072c                GPIO_ToggleOpPin
  .text.GPIO_IRQConfig
                 0x0000000008000754      0x108 ./drivers/Src/stm32f303xCxx_gpio_driver.o
                 0x0000000008000754                GPIO_IRQConfig
@@ -944,7 +944,7 @@ LOAD C:/ST/STM32CubeIDE_1.8.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.exte
  .debug_rnglists
                 0x0000000000000039       0x53 ./drivers/Src/stm32f303xCxx_gpio_driver.o
 
-.debug_macro    0x0000000000000000     0x20c7
+.debug_macro    0x0000000000000000     0x21a7
  .debug_macro   0x0000000000000000      0x15b ./Src/001_BT_Interrupt.o
  .debug_macro   0x000000000000015b      0xaa8 ./Src/001_BT_Interrupt.o
  .debug_macro   0x0000000000000c03       0x22 ./Src/001_BT_Interrupt.o
@@ -970,27 +970,27 @@ LOAD C:/ST/STM32CubeIDE_1.8.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.exte
  .debug_macro   0x000000000000165e      0x103 ./Src/001_BT_Interrupt.o
  .debug_macro   0x0000000000001761       0x6a ./Src/001_BT_Interrupt.o
  .debug_macro   0x00000000000017cb      0x1df ./Src/001_BT_Interrupt.o
- .debug_macro   0x00000000000019aa      0x251 ./Src/001_BT_Interrupt.o
- .debug_macro   0x0000000000001bfb       0xbe ./Src/001_BT_Interrupt.o
- .debug_macro   0x0000000000001cb9       0x28 ./Src/001_BT_Interrupt.o
- .debug_macro   0x0000000000001ce1       0x9a ./drivers/Src/stm32f303xCxx_gpio_driver.o
- .debug_macro   0x0000000000001d7b       0x8e ./drivers/Src/stm32f303xCxx_gpio_driver.o
- .debug_macro   0x0000000000001e09       0x51 ./drivers/Src/stm32f303xCxx_gpio_driver.o
- .debug_macro   0x0000000000001e5a      0x24b ./drivers/Src/stm32f303xCxx_gpio_driver.o
- .debug_macro   0x00000000000020a5       0x22 ./drivers/Src/stm32f303xCxx_gpio_driver.o
+ .debug_macro   0x00000000000019aa      0x2c1 ./Src/001_BT_Interrupt.o
+ .debug_macro   0x0000000000001c6b       0xbe ./Src/001_BT_Interrupt.o
+ .debug_macro   0x0000000000001d29       0x28 ./Src/001_BT_Interrupt.o
+ .debug_macro   0x0000000000001d51       0x9a ./drivers/Src/stm32f303xCxx_gpio_driver.o
+ .debug_macro   0x0000000000001deb       0x8e ./drivers/Src/stm32f303xCxx_gpio_driver.o
+ .debug_macro   0x0000000000001e79       0x51 ./drivers/Src/stm32f303xCxx_gpio_driver.o
+ .debug_macro   0x0000000000001eca      0x2bb ./drivers/Src/stm32f303xCxx_gpio_driver.o
+ .debug_macro   0x0000000000002185       0x22 ./drivers/Src/stm32f303xCxx_gpio_driver.o
 
 .debug_line     0x0000000000000000     0x10b0
  .debug_line    0x0000000000000000      0x680 ./Src/001_BT_Interrupt.o
  .debug_line    0x0000000000000680       0x7b ./Startup/startup_stm32f303vctx.o
  .debug_line    0x00000000000006fb      0x9b5 ./drivers/Src/stm32f303xCxx_gpio_driver.o
 
-.debug_str      0x0000000000000000     0x8555
- .debug_str     0x0000000000000000     0x82de ./Src/001_BT_Interrupt.o
-                                       0x84d8 (size before relaxing)
- .debug_str     0x00000000000082de       0x2f ./Startup/startup_stm32f303vctx.o
+.debug_str      0x0000000000000000     0x85e0
+ .debug_str     0x0000000000000000     0x8369 ./Src/001_BT_Interrupt.o
+                                       0x8563 (size before relaxing)
+ .debug_str     0x0000000000008369       0x2f ./Startup/startup_stm32f303vctx.o
                                          0x6e (size before relaxing)
- .debug_str     0x000000000000830d      0x248 ./drivers/Src/stm32f303xCxx_gpio_driver.o
-                                       0x525e (size before relaxing)
+ .debug_str     0x0000000000008398      0x248 ./drivers/Src/stm32f303xCxx_gpio_driver.o
+                                       0x52e9 (size before relaxing)
 
 .debug_frame    0x0000000000000000      0x288
  .debug_frame   0x0000000000000000       0x74 ./Src/001_BT_Interrupt.o

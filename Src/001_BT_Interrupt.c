@@ -45,5 +45,5 @@ void EXTI2_TSC_IRQHandler(void)
 {
 	delay();
 	GPIO_IRQHandling(GPIO_PIN_NO_2);
-	GPIO_ToggleOpPort(GPIOE, GPIO_PIN_NO_14);
+	GPIO_ToggleOpPin(GPIOE, GPIO_PIN_NO_14);
 }

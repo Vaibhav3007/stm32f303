@@ -39,15 +39,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  17 .debug_rnglists 0000008c  00000000  00000000  00011700  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_macro  000020c7  00000000  00000000  0001178c  2**0
+ 18 .debug_macro  000021a7  00000000  00000000  0001178c  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_line   000010b0  00000000  00000000  00013853  2**0
+ 19 .debug_line   000010b0  00000000  00000000  00013933  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .debug_str    00008555  00000000  00000000  00014903  2**0
+ 20 .debug_str    000085e0  00000000  00000000  000149e3  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_frame  00000288  00000000  00000000  0001ce58  2**2
+ 21 .debug_frame  00000288  00000000  00000000  0001cfc4  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 22 .debug_line_str 00000062  00000000  00000000  0001d0e0  2**0
+ 22 .debug_line_str 00000062  00000000  00000000  0001d24c  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -205,10 +205,10 @@ void EXTI2_TSC_IRQHandler(void)
 	GPIO_IRQHandling(GPIO_PIN_NO_2);
  8000288:	2002      	movs	r0, #2
  800028a:	f000 fb11 	bl	80008b0 <GPIO_IRQHandling>
-	GPIO_ToggleOpPort(GPIOE, GPIO_PIN_NO_14);
+	GPIO_ToggleOpPin(GPIOE, GPIO_PIN_NO_14);
  800028e:	210e      	movs	r1, #14
  8000290:	4802      	ldr	r0, [pc, #8]	; (800029c <EXTI2_TSC_IRQHandler+0x1c>)
- 8000292:	f000 fa4b 	bl	800072c <GPIO_ToggleOpPort>
+ 8000292:	f000 fa4b 	bl	800072c <GPIO_ToggleOpPin>
 }
  8000296:	bf00      	nop
  8000298:	bd80      	pop	{r7, pc}
@@ -323,9 +323,9 @@ Infinite_Loop:
 	...
 
 080002f4 <GPIO_PClkCtrl>:
- * @return            -  none
+ * @return 			- none
  *
- * @Note              -  none
+ * @Note			- none
  */
 void GPIO_PClkCtrl(GPIO_RegDef_t *pGPIOx, uint8_t E_D)
 {
@@ -500,9 +500,9 @@ void GPIO_PClkCtrl(GPIO_RegDef_t *pGPIOx, uint8_t E_D)
  800042c:	48001400 	.word	0x48001400
 
 08000430 <GPIO_Init>:
- * @return            - none
+ * @return 			- none
  *
- * @Note              - Total five values to be configured
+ * @Note			- none
  */
 void GPIO_Init(GPIO_Handle_t *pGPIOHandle)
 {
@@ -932,12 +932,12 @@ void GPIO_Init(GPIO_Handle_t *pGPIOHandle)
  8000724:	40021000 	.word	0x40021000
  8000728:	40010000 	.word	0x40010000
 
-0800072c <GPIO_ToggleOpPort>:
- * @return            -  none
+0800072c <GPIO_ToggleOpPin>:
+ * @return 			- none
  *
- * @Note              -  none
+ * @Note			- none
  */
-void GPIO_ToggleOpPort(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber)
+void GPIO_ToggleOpPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber)
 {
  800072c:	b480      	push	{r7}
  800072e:	b083      	sub	sp, #12
@@ -962,9 +962,9 @@ void GPIO_ToggleOpPort(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber)
  8000752:	4770      	bx	lr
 
 08000754 <GPIO_IRQConfig>:
- * @return            -  none
+ * @return 			- none
  *
- * @Note              -  none
+ * @Note			- none
  */
 void GPIO_IRQConfig(uint8_t IRQNumber, uint8_t E_D)
 {
@@ -1111,9 +1111,9 @@ void GPIO_IRQConfig(uint8_t IRQNumber, uint8_t E_D)
  8000858:	e000e188 	.word	0xe000e188
 
 0800085c <GPIO_IRQPriorityConfig>:
- * @return            -  none
+ * @return 			- none
  *
- * @Note              -  none
+ * @Note			- none
  */
 void GPIO_IRQPriorityConfig(uint8_t IRQNumber, uint32_t IRQPriority)
 {
@@ -1161,9 +1161,9 @@ void GPIO_IRQPriorityConfig(uint8_t IRQNumber, uint32_t IRQPriority)
 	...
 
 080008b0 <GPIO_IRQHandling>:
- * @return            -  none
+ * @return 			- none
  *
- * @Note              -  none
+ * @Note			- none
  */
 void GPIO_IRQHandling(uint8_t PinNumber)
 {
