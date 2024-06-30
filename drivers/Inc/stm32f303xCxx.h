@@ -26,6 +26,10 @@
 #define NVIC_ISER1					((__vo uint32_t*)0xE000E104)
 #define NVIC_ISER2					((__vo uint32_t*)0xE000E108)
 #define NVIC_ISER3					((__vo uint32_t*)0xE000E10C)
+#define NVIC_ISER4					((__vo uint32_t*)0xE000E110)
+#define NVIC_ISER5					((__vo uint32_t*)0xE000E114)
+#define NVIC_ISER6					((__vo uint32_t*)0xE000E118)
+#define NVIC_ISER7					((__vo uint32_t*)0xE000E11C)
 /*
  * Cortex M4 NVIC ISERx specific details
  */
@@ -33,6 +37,10 @@
 #define NVIC_ICER1					((__vo uint32_t*)0xE000E184)
 #define NVIC_ICER2					((__vo uint32_t*)0xE000E188)
 #define NVIC_ICER3					((__vo uint32_t*)0xE000E18C)
+#define NVIC_ICER4					((__vo uint32_t*)0xE000E190)
+#define NVIC_ICER5					((__vo uint32_t*)0xE000E194)
+#define NVIC_ICER6					((__vo uint32_t*)0xE000E198)
+#define NVIC_ICER7					((__vo uint32_t*)0xE000E19C)
 /*
  * Cortex M4 Priority Register Base Address
  */
@@ -85,9 +93,42 @@
 #define GPIOD_BASEADDR				(AHB2PERIPHERAL_BASEADDR+0x0C00)
 #define GPIOE_BASEADDR				(AHB2PERIPHERAL_BASEADDR+0x1000)
 #define GPIOF_BASEADDR				(AHB2PERIPHERAL_BASEADDR+0x1400)
-//I2Cx base addresses
-#define I2C1_BASEADDR				(APB1PERIPHERAL_BASEADDR+0x5400)
-#define I2C2_BASEADDR				(APB1PERIPHERAL_BASEADDR+0x5800)
+
+/*
+ * IRQ number for EXTI lines
+ */
+#define IRQ_NO_EXTI0		6
+#define IRQ_NO_EXTI1		7
+#define IRQ_NO_EXTI2		8
+#define IRQ_NO_EXTI3		9
+#define IRQ_NO_EXTI4		10
+#define IRQ_NO_EXTI9_5		23
+#define IRQ_NO_EXTI15_10	40
+
+/*
+ * Interrupt programmable priority level
+ */
+#define PRIORITY_0			0
+#define PRIORITY_1			1
+#define PRIORITY_2			2
+#define PRIORITY_3			3
+#define PRIORITY_4			4
+#define PRIORITY_5			5
+#define PRIORITY_6			6
+#define PRIORITY_7			7
+#define PRIORITY_8			8
+#define PRIORITY_9			9
+#define PRIORITY_10			10
+#define PRIORITY_11			11
+#define PRIORITY_12			12
+#define PRIORITY_13			13
+#define PRIORITY_14			14
+#define PRIORITY_15			15
+
+/*
+ * I2Cx Bit position definitions
+ */
+
 /*
  * RCC register definition structure
  */
@@ -169,6 +210,21 @@ typedef struct{
 }I2C_RegDef_t;
 
 /*
+ * SPI peripheral register structure
+ */
+typedef struct{
+	__vo uint32_t SPIx_CR1;
+	__vo uint32_t SPIx_CR2;
+	__vo uint32_t SPIx_SR;
+	__vo uint32_t SPIx_DR;
+	__vo uint32_t SPIx_CRCPR;
+	__vo uint32_t SPIx_RXCRCR;
+	__vo uint32_t SPIx_TXCRCR;
+	__vo uint32_t SPIx_I2SCFGR;
+	__vo uint32_t SPIx_I2SPR;
+}SPI_RegDef_t;
+
+/*
  *  Peripherals as register definition structure member elements
  */
 #define RCC			((RCC_RegDef_t*)RCC_BASEADDR)
@@ -182,6 +238,10 @@ typedef struct{
 #define SYSCFG		((SYSCFG_RegDef_t*)SYSCFG_BASEADDR)
 #define I2C1		((I2C_RegDef_t*)I2C1_BASEADDR)
 #define I2C2		((I2C_RegDef_t*)I2C2_BASEADDR)
+#define SPI1		((SPI_RegDef_t*)SPI1_BASEADDR)
+#define SPI2		((SPI_RegDef_t*)SPI2_BASEADDR)
+#define SPI3		((SPI_RegDef_t*)SPI3_BASEADDR)
+
 /*
  * GPIO peripheral clock enable
  */
@@ -191,6 +251,7 @@ typedef struct{
 #define GPIOD_CLK_EN()		(RCC->RCC_AHBENR |= (1 << 20))
 #define GPIOE_CLK_EN()		(RCC->RCC_AHBENR |= (1 << 21))
 #define GPIOF_CLK_EN()		(RCC->RCC_AHBENR |= (1 << 22))
+
 /*
  * GPIO peripheral clock disable
  */
@@ -200,6 +261,7 @@ typedef struct{
 #define GPIOD_CLK_DI()		(RCC->RCC_AHBENR &= ~(1 << 20))
 #define GPIOE_CLK_DI()		(RCC->RCC_AHBENR &= ~(1 << 21))
 #define GPIOF_CLK_DI()		(RCC->RCC_AHBENR &= ~(1 << 22))
+
 /*
  * GPIO peripheral register reset
  */
@@ -209,11 +271,30 @@ typedef struct{
 #define GPIOD_REG_RESET()	do {(RCC->RCC_AHBRSTR |= (1 << 20)); (RCC->RCC_AHBRSTR &= ~(1 << 20));} while(0)
 #define GPIOE_REG_RESET()	do {(RCC->RCC_AHBRSTR |= (1 << 21)); (RCC->RCC_AHBRSTR &= ~(1 << 21));} while(0)
 #define GPIOF_REG_RESET()	do {(RCC->RCC_AHBRSTR |= (1 << 22)); (RCC->RCC_AHBRSTR &= ~(1 << 22));} while(0)
+
 /*
  * SYSCFG peripheral clock control
  */
 #define SYSCFG_PCLCK_EN()	(RCC->RCC_APB2ENR |= (1 << 0))
 #define SYSCFG_PCLCK_DI()	(RCC->RCC_APB2ENR &= ~(1 << 0))
+
+/*
+ * SPI peripheral clock control
+ */
+#define SPI1_CLK_EN()		(RCC->RCC_APB2ENR |= (1 << 12))
+#define SPI1_CLK_DI()		(RCC->RCC_APB2ENR &= ~(1 << 12))
+#define SPI2_CLK_EN()		(RCC->RCC_APB1ENR |= (1 << 14))
+#define SPI2_CLK_DI()		(RCC->RCC_APB1ENR &= ~(1 << 14))
+#define SPI3_CLK_EN()		(RCC->RCC_APB1ENR |= (1 << 15))
+#define SPI3_CLK_DI()		(RCC->RCC_APB1ENR &= ~(1 << 15))
+
+/*
+ * SPI peripheral register reset
+ */
+#define SPI1_REG_RESET()	do {(RCC->RCC_APB2RSTR |= (1 << 12)); (RCC->RCC_APB2RSTR &= ~(1 << 12));} while(0)
+#define SPI2_REG_RESET()	do {(RCC->RCC_APB1RSTR |= (1 << 14)); (RCC->RCC_APB2RSTR &= ~(1 << 14));} while(0)
+#define SPI3_REG_RESET()	do {(RCC->RCC_APB1RSTR |= (1 << 15)); (RCC->RCC_APB2RSTR &= ~(1 << 15));} while(0)
+
 /*
  * I2C peripheral clock control
  */
@@ -221,6 +302,7 @@ typedef struct{
 #define I2C2_PCLCK_EN()		(RCC->RCC_APB1ENR |= (1 << 22))
 #define I2C1_PCLCK_DI()		(RCC->RCC_APB1ENR &= ~(1 << 21))
 #define I2C2_PCLCK_DI()		(RCC->RCC_APB1ENR &= ~(1 << 22))
+
 /*
  * Get port code between 0 and 5 for a given GPIO base address
  */
@@ -230,41 +312,10 @@ typedef struct{
 										 (x == GPIOD) ? 3 :\
 										 (x == GPIOE) ? 4 :\
 										 (x == GPIOF) ? 5 :0)
-/*
- * IRQ number for EXTI lines
- */
-#define IRQ_NO_EXTI0		6
-#define IRQ_NO_EXTI1		7
-#define IRQ_NO_EXTI2		8
-#define IRQ_NO_EXTI3		9
-#define IRQ_NO_EXTI4		10
-#define IRQ_NO_EXTI9_5		23
-#define IRQ_NO_EXTI15_10	40
 
 /*
- * Interrupt programmable priority level
+ * Bit definition macros of SPI @TODO
  */
-#define PRI_0			0
-#define PRI_1			1
-#define PRI_2			2
-#define PRI_3			3
-#define PRI_4			4
-#define PRI_5			5
-#define PRI_6			6
-#define PRI_7			7
-#define PRI_8			8
-#define PRI_9			9
-#define PRI_10			10
-#define PRI_11			11
-#define PRI_12			12
-#define PRI_13			13
-#define PRI_14			14
-#define PRI_15			15
-
-/*
- * I2Cx Bit position definitions
- */
-
 
 
 #include "stm32f303xCxx_gpio_driver.h"

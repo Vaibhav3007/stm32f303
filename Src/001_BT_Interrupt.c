@@ -35,7 +35,7 @@ int main(void)
 	GPIO_PClkCtrl(GPIOA, ENABLE);
 	GPIO_Init(&UsrBtn);
 	//Interrupt handling
-	GPIO_IRQPriorityConfig(IRQ_NO_EXTI0, 1);
+	GPIO_IRQPriorityConfig(IRQ_NO_EXTI0, PRIORITY_1);
 	GPIO_IRQConfig(IRQ_NO_EXTI0, ENABLE);
     /* Loop forever */
 	while(1);

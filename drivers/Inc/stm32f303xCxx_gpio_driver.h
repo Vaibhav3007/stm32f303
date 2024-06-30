@@ -89,16 +89,16 @@ typedef struct{
 
 
 /* APIs supported by this driver*/
-void 		GPIO_PClkCtrl			(GPIO_RegDef_t *pGPIOx, uint8_t E_D); //Enable or Disable a peripheral
-void 		GPIO_Init				(GPIO_Handle_t *pGPIOHandle);
-void 		GPIO_DeInit				(GPIO_RegDef_t *pGPIOx);
-uint8_t 	GPIO_ReadFrmIpPin		(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber);
-uint16_t 	GPIO_ReadFrmIpPort		(GPIO_RegDef_t *pGPIOx);
-void 		GPIO_WriteToOpPin		(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber, uint8_t Value);
-void 		GPIO_WriteToOpPort		(GPIO_RegDef_t *pGPIOx, uint16_t Value);
-void 		GPIO_ToggleOpPin		(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber);
-void 		GPIO_IRQConfig			(uint8_t IRQNumber, uint8_t E_D);
-void 		GPIO_IRQPriorityConfig	(uint8_t IRQNumber, uint32_t IRQPriority);
-void 		GPIO_IRQHandling		(uint8_t PinNumber);
+void GPIO_PClkCtrl(GPIO_RegDef_t *pGPIOx, uint8_t E_D);
+void GPIO_Init(GPIO_Handle_t *pGPIOHandle);
+void GPIO_DeInit(GPIO_RegDef_t *pGPIOx);
+uint8_t	GPIO_ReadFrmIpPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber);
+uint16_t GPIO_ReadFrmIpPort(GPIO_RegDef_t *pGPIOx);
+void GPIO_WriteToOpPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber, uint8_t Value);
+void GPIO_WriteToOpPort(GPIO_RegDef_t *pGPIOx, uint16_t Value);
+void GPIO_ToggleOpPin(GPIO_RegDef_t *pGPIOx, uint8_t PinNumber);
+void GPIO_IRQConfig(uint8_t IRQNumber, uint8_t E_D);
+void GPIO_IRQPriorityConfig(uint8_t IRQNumber, uint32_t IRQPriority);
+void GPIO_IRQHandling(uint8_t PinNumber);
 
 #endif /* INC_STM32F303XCXX_GPIO_DRIVER_H_ */
